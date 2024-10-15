@@ -19,7 +19,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-10-15 00:19:57
 */
 
 #include <bits/stdc++.h>
@@ -87,20 +87,70 @@ void print_v(vector<T> &v)
 }
 
 /*  --------------------SOLUTION PROGRAM-------------------------*/
+int cal(string s, int a)
+{
+    int i = a;
+    while (i <= s.length())
+    {
+
+        if (s[i] == 'g')
+        {
+            return i - a + 1;
+        }
+        i++;
+    }
+    return -1;
+}
+
 void solve()
 {
-    int n;
-    cin >> n;
-    vi a(n);
-    vin(a);
+    int s;
+    char x;
+    string a;
 
-    if (n == 1 || n == 2)
+    cin >> s >> x;
+    cin >> a;
+
+    if (x == 'g')
     {
-        cout << -1;
-        return;
+        cout << 0;
     }
-    sort(pura(a));
-    int mx = 0;
+    else if (x == 'y')
+    {
+        int i = 0;
+        for (; i < s; i++)
+        {
+            i % s;
+            if (a[i] == 'r')
+            {
+                break;
+            }
+        }
+        while (1)
+        {
+            i++;
+            i % s;
+            if (a[i] == 'g')
+            {
+                i++;
+                break;
+            }
+        }
+        cout << i;
+    }
+    else
+    {
+        a += a;
+        int ans = 0;
+        for (int i = 0; i < s; i++)
+        {
+            if (a[i] == 'r')
+            {
+                ans = max(ans, cal(a, i + 1));
+            }
+        }
+        cout << ans;
+    }
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/

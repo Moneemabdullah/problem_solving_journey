@@ -19,7 +19,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-09-27 19:40:00
 */
 
 #include <bits/stdc++.h>
@@ -89,18 +89,40 @@ void print_v(vector<T> &v)
 /*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
-    int n;
-    cin >> n;
-    vi a(n);
-    vin(a);
+    int r;
+    cin >> r;
 
-    if (n == 1 || n == 2)
+    int p = 0;
+    int n = 0;
+
+    priority_queue<int> a;
+    priority_queue<int> b;
+
+    for (int i = 1; i <= r; i++)
     {
-        cout << -1;
-        return;
+        int x;
+        cin >> x;
+        if (i & 1)
+        {
+            a.push(x);
+        }
+        else
+        {
+            b.push(x);
+        }
     }
-    sort(pura(a));
-    int mx = 0;
+
+    if (!a.empty())
+    {
+        p = a.top() + a.size();
+    }
+
+    if (!b.empty())
+    {
+        n = b.top() + b.size();
+    }
+
+    cout << max(p, n);
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/

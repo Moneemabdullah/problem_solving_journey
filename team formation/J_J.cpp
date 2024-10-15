@@ -19,7 +19,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-10-10 21:07:36
 */
 
 #include <bits/stdc++.h>
@@ -89,18 +89,33 @@ void print_v(vector<T> &v)
 /*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
+    /* Lets GO */
     int n;
     cin >> n;
-    vi a(n);
-    vin(a);
 
-    if (n == 1 || n == 2)
+    vi v(n);
+    vin(v);
+    vi ans;
+    for (int i = n; i >= 0; i--)
     {
-        cout << -1;
-        return;
+        if (v[i] == i + 1)
+        {
+            ans.push_back(v[i]);
+        }
+
+        v.pop_back();
     }
-    sort(pura(a));
-    int mx = 0;
+
+    if (v.size() == 0)
+    {
+        no;
+    }
+    else
+    {
+        yes;
+        reverse(pura(ans));
+        vout(ans);
+    }
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/
@@ -110,7 +125,7 @@ int main()
     BISMILLAH
 
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
         // cout << "Case #" << tc++ << ": ";

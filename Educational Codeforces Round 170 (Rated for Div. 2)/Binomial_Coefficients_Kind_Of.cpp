@@ -19,7 +19,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-10-14 22:27:47
 */
 
 #include <bits/stdc++.h>
@@ -57,10 +57,9 @@ const int MAX_N = 1e5 + 5;
 #define vin(a)         \
     for (auto &it : a) \
         cin >> it;
-#define vout(a)            \
-    for (auto &it : a)     \
-        cout << it << " "; \
-    cout << "\n";
+#define vout(a)        \
+    for (auto &it : a) \
+        cout << it << endl;
 
 ll gcd(ll a, ll b)
 {
@@ -89,18 +88,34 @@ void print_v(vector<T> &v)
 /*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
+
     int n;
     cin >> n;
-    vi a(n);
+    vi a(n), b(n);
+    vi ansV;
     vin(a);
+    vin(b);
 
-    if (n == 1 || n == 2)
+    for (int i = 0; i < n; i++)
     {
-        cout << -1;
-        return;
+        int ans = 1, q = 2;
+        int p = b[i];
+
+        while (p > 0)
+        {
+            if (p % 2 == 1)
+            {
+                ans = (1LL * ans * q) % MOD;
+            }
+
+            q = (1LL * q * q) % MOD;
+            p /= 2;
+        }
+
+        ansV.push_back(ans);
     }
-    sort(pura(a));
-    int mx = 0;
+
+    vout(ansV);
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/
@@ -110,7 +125,7 @@ int main()
     BISMILLAH
 
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
         // cout << "Case #" << tc++ << ": ";

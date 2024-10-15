@@ -19,7 +19,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-10-08 22:39:52
 */
 
 #include <bits/stdc++.h>
@@ -89,18 +89,39 @@ void print_v(vector<T> &v)
 /*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
+    /* Lets GO */
     int n;
     cin >> n;
-    vi a(n);
-    vin(a);
+    int x = n;
+    map<int, int> mp;
 
-    if (n == 1 || n == 2)
+    for (int i = 0; i < n; i++)
     {
-        cout << -1;
-        return;
+        int a;
+        cin >> a;
+
+        mp[a]++;
     }
-    sort(pura(a));
-    int mx = 0;
+    if (mp[-1] <= mp[1])
+    {
+        cout << 0;
+    }
+    else if (mp[1] == 0)
+    {
+        cout << mp[-1];
+    }
+    else
+    {
+        int y = mp[-1] - mp[1];
+        if (y % 2 == 0)
+        {
+            cout << y - 1;
+        }
+        else
+        {
+            cout << y;
+        }
+    }
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/

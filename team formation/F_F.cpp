@@ -19,24 +19,17 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-10-10 18:58:22
 */
 
 #include <bits/stdc++.h>
 
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-
-using namespace __gnu_pbds;
 using namespace std;
 
 #define BISMILLAH                 \
     ios_base::sync_with_stdio(0); \
     cin.tie(0);                   \
     cout.tie(0);
-
-template <typename T>
-using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 const int MAX_N = 1e5 + 5;
 
@@ -87,36 +80,89 @@ void print_v(vector<T> &v)
 }
 
 /*  --------------------SOLUTION PROGRAM-------------------------*/
+/*  --------------------SOLUTION PROGRAM-------------------------*/
 void solve()
 {
-    int n;
-    cin >> n;
-    vi a(n);
-    vin(a);
+    int n, b;
+    cin >> n >> b;
 
-    if (n == 1 || n == 2)
+    deque<int> dq;
+
+    while (b--)
     {
-        cout << -1;
-        return;
-    }
-    sort(pura(a));
-    int mx = 0;
-}
+        int x;
+        string operation;
+        cin >> operation;
 
-/*  --------------------MAIN PROGRAM----------------------------*/
+        if (operation == "pushLeft")
+        {
+            cin >> x;
+            if (dq.size() == n)
+            {
+                cout << "The queue is full" << endl;
+            }
+            else
+            {
+                dq.push_front(x);
+                cout << "Pushed in left: " << x << endl;
+            }
+        }
+        else if (operation == "pushRight")
+        {
+            cin >> x;
+            if (dq.size() == n)
+            {
+                cout << "The queue is full" << endl;
+            }
+            else
+            {
+                dq.push_back(x);
+                cout << "Pushed in right: " << x << endl;
+            }
+        }
+        else if (operation == "popLeft")
+        {
+            if (dq.empty())
+            {
+                cout << "The queue is empty" << endl;
+            }
+            else
+            {
+                int popped_value = dq.front();
+                dq.pop_front();
+                cout << "Popped from left: " << popped_value << endl;
+            }
+        }
+        else if (operation == "popRight")
+        {
+            if (dq.empty())
+            {
+                cout << "The queue is empty" << endl;
+            }
+            else
+            {
+                int popped_value = dq.back();
+                dq.pop_back();
+                cout << "Popped from right: " << popped_value << endl;
+            }
+        }
+    }
+}
 
 int main()
 {
     BISMILLAH
 
-    int tc = 1;
+    int tc;
     cin >> tc;
-    while (tc--)
+    for (int i = 1; i <= tc; ++i)
     {
-        // cout << "Case #" << tc++ << ": ";
+        cout << "Case " << i << ":" << endl;
         solve();
-        cout << "\n";
+        if (i < tc)
+        {
+            cout << endl;
+        }
     }
     return 0;
 }
-/* -----------------END OF PROGRAM --------------------*/

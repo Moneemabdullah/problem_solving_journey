@@ -19,7 +19,7 @@
 
     Institute:- BAIUST
     Country:- BANGLADESH
-    date: 2024-09-21 22:54:26
+    date: 2024-09-27 20:41:12
 */
 
 #include <bits/stdc++.h>
@@ -87,20 +87,54 @@ void print_v(vector<T> &v)
 }
 
 /*  --------------------SOLUTION PROGRAM-------------------------*/
+
+string join(vector<string> &v, string deli)
+{
+    string res;
+    for (int i = 0; i < v.size(); i++)
+    {
+        res += v[i];
+        if (i < v.size())
+        {
+            res += deli;
+        }
+    }
+}
 void solve()
 {
-    int n;
-    cin >> n;
-    vi a(n);
-    vin(a);
+    int n, q;
+    cin >> n >> q;
+    vi x(n);
+    vin(x);
+    vi qu(q);
+    vin(qu);
 
-    if (n == 1 || n == 2)
+    unordered_map<int, int> fre;
+    for (int i = 1; i <= n; i++)
     {
-        cout << -1;
-        return;
+        int k_p = (i - 1) * (n - i + 1) + (n - 1);
+        fre[k_p]++;
+
+        if (i < n)
+        {
+            int del = x[i] - x[i - 1] - 1;
+            if (del > 0)
+            {
+                int k_b = i * (n - i);
+                fre[k_b] += del;
+            }
+        }
     }
-    sort(pura(a));
-    int mx = 0;
+
+    vector<string> ans;
+    for (int x : qu)
+    {
+        ans.push_back(to_string(fre[x]));
+    }
+
+    vout(ans);
+
+    cout << join(ans, " ");
 }
 
 /*  --------------------MAIN PROGRAM----------------------------*/
