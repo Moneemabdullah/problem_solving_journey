@@ -1,0 +1,1 @@
+{"name":"Local: f","url":"c:\\Users\\DELL\\Desktop\\problem solving\\IUCP 2025\\f.cpp","tests":[{"id":1737442304129,"input":"3 20\n30 30 30\n","output":""},{"id":1737442624837,"input":"3 100\n20 16 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\DELL\\Desktop\\problem solving\\IUCP 2025\\f.cpp","group":"local","local":true}
